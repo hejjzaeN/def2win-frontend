@@ -1,0 +1,23 @@
+.mini-profile {
+    max-width: 400px;
+}
+
+.mini-profile-header-image {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/Mike_Tyson_2019_by_Glenn_Francis.jpg');
+    background-size: cover;
+}
+
+mat-card-subtitle {
+    font-size: 14px;
+}
+
+mat-card-content p {
+    font-size: 12px;
+    text-align: center;
+}
+
+.separator {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, transparent, #CCC, transparent);  
+}

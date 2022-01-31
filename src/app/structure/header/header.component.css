@@ -1,0 +1,7 @@
+.header-bar {
+    width: 100%;
+    height: 1.5rem;
+    background-color: #ccc;
+    text-align: center;
+    padding: 10px 0 10px 0;
+}

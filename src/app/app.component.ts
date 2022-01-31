@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'Def2Win';
+  
+  options: FormGroup;
+
+  constructor(fb: FormBuilder) {
+    this.options = fb.group({
+      bottom: 0,
+      fixed: true,
+      top: 0,
+      position: 'end'
+    });
+  }
 }

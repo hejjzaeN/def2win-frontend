@@ -1,32 +1,73 @@
-<p>
-    <mat-form-field appearance="legacy">
-      <mat-label>Legacy form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-</p>
-<p>
-    <mat-form-field appearance="standard">
-      <mat-label>Standard form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-</p>
-<p>
-    <mat-form-field appearance="fill">
-      <mat-label>Fill form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-</p>
-<p>
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-</p>
+<form #form="ngForm" class="register-form" novalidate>
+  <table>
+    <tr>
+      <td>
+        <mat-form-field class="register-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Введите корректный email
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email обязателен
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-form-field class="register-full-width" appearance="fill">
+          <mat-label>Пароль</mat-label>
+          <input matInput [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-form-field class="register-full-width" appearance="fill">
+          <mat-label>Повторите пароль</mat-label>
+          <input matInput [formControl]="password2FormControl" [type]="hide ? 'password' : 'text'">
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-form-field class="register-full-width" appearance="fill">
+          <mat-label>Фамилия</mat-label>
+          <input matInput [formControl]="surnameFormControl">
+        </mat-form-field>
+        <mat-form-field class="register-full-width" appearance="fill">
+          <mat-label>Имя</mat-label>
+          <input matInput [formControl]="firstnameFormControl">
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-form-field class="register-full-width" appearance="fill">
+          <mat-label>Дата рождения</mat-label>
+          <input matInput [formControl]="dobFormControl" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="register-button-row">
+          <a mat-raised-button [routerLink]="['/login']">Уже есть аккаунт</a>
+          <button mat-raised-button (click)="registerUser()" [disabled]="!validated()">Зарегистрироваться</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>

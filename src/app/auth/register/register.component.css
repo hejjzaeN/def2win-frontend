@@ -1,0 +1,9 @@
+.content {
+    text-align: center;
+}
+
+.errorMessage {
+    color: red;
+    font-weight:700;
+    padding-top: 1.5rem;
+}

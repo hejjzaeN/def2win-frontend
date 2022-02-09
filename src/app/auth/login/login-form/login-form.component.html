@@ -1,0 +1,46 @@
+<form class="register-form">
+    <table>
+      <tr>
+        <td>
+          <mat-form-field class="register-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                  placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Введите корректный email
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email обязателен
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+  
+      <tr>
+        <td>
+          <mat-form-field class="register-full-width" appearance="fill">
+            <mat-label>Пароль</mat-label>
+            <input matInput [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+              Введите корректный пароль
+            </mat-error>
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              Пароль обязателен
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+  
+      <tr>
+        <td>
+          <div class="register-button-row">
+            <a mat-raised-button [routerLink]="['/register']">Еще нет аккаунта?</a>
+            <a mat-raised-button (click)="loginUser()" [disabled]="!validated()">Войти</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>

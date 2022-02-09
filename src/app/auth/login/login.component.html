@@ -1,1 +1,7 @@
-<p>login works!</p>
+<div class="content">
+    <login-prescription></login-prescription>
+    <login-form (login)="loginUser($event)"></login-form>
+    <div *ngIf="errorMessage" class="errorMessage">
+        {{ errorMessage }}
+    </div>
+</div>

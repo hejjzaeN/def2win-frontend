@@ -2,9 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    background-color: rgb(230, 230, 230);
-  }
+    width: 12rem;
+    /* background-color: rgb(230, 230, 230); */
+}
   
 mat-sidenav-content {
     position: relative;

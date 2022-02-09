@@ -8,13 +8,17 @@ import { MaterialModule } from './material/material.module';
 import { StructureModule } from './structure/structure.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
+import { GoalComponent } from './goal/goal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GoalComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,

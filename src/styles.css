@@ -1,2 +1,32 @@
+:root {
+    --primary-color: #dc3545;
+    --dark-color: #333333;
+    --light-color: #f4f4f4;
+}
+
+*  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 1rem;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: .4rem;
+    font-size: 1.2rem;
+    margin-bottom: .4rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
